@@ -1,6 +1,6 @@
 using Microsoft.Data.Sqlite;
-using Manga.Interfaces;
-using Manga.Models; // Asume que la clase Usuario está en la carpeta Models
+using TiendaManga.Interfaces;
+using TiendaManga.Models; // Asume que la clase Usuario está en la carpeta Models
 
 namespace Manga.Repositorios;
 
@@ -9,7 +9,7 @@ namespace Manga.Repositorios;
     {
         // Cadena de conexión SQLite
         // Asegúrate de que esta ruta sea correcta para tu proyecto
-        private readonly string CadenaConexion = "Data Source=./DB/streaming.db";
+        private readonly string CadenaConexion = "Data Source=./DB/TiendaManga.db";
 
         // Constructor vacío (la Inyección de Dependencias se aplicará en el Controller)
         public Usuario GetUser(string usuario, string contrasena)

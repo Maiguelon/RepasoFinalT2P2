@@ -1,4 +1,4 @@
-namespace Manga.Models;
+namespace TiendaManga.Models;
 
 public class Usuario
 {

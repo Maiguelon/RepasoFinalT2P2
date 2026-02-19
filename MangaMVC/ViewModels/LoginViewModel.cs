@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-namespace Manga.ViewModels;
+namespace TiendaManga.ViewModels;
 public class LoginViewModel
 {
     [Required]

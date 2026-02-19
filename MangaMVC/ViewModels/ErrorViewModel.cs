@@ -1,4 +1,4 @@
-namespace MangaMVC.Models;
+namespace TiendaManga.Models;
 
 public class ErrorViewModel
 {

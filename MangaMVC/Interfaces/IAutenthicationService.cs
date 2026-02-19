@@ -1,4 +1,4 @@
-namespace Manga.Interfaces;
+namespace TiendaManga.Interfaces;
 public interface IAuthenticationService
 {
     bool Login( string username, string password);
