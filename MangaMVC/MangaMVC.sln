@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaMVC", "MangaMVC.csproj", "{C0A04C27-B4EE-395A-80AF-6816764A3F8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0A04C27-B4EE-395A-80AF-6816764A3F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A04C27-B4EE-395A-80AF-6816764A3F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A04C27-B4EE-395A-80AF-6816764A3F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A04C27-B4EE-395A-80AF-6816764A3F8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F40D27C-8308-4B9C-837E-9C3F52B66FD2}
+	EndGlobalSection
+EndGlobal

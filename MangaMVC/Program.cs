@@ -1,9 +1,30 @@
+// AGREGAR
+using Manga.Interfaces;
+using Manga.Repositorios;
+using Manga.Services;
+
+// { AGREGAR
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Tiempo de expiración de la sesión
+    options.Cookie.HttpOnly = true; // Solo accesible desde HTTP, no JavaScript
+    options.Cookie.IsEssential = true; // Necesario incluso si el usuario no acepta cookies
+});
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IUserRepository, UsuarioRepository>();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+// builder.Services.AddScoped<IMangaRepository, MangaRepository>();
+// }
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+app.UseSession(); // AGREGAR
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
