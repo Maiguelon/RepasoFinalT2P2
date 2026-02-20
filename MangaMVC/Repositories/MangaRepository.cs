@@ -53,7 +53,7 @@ public class MangaRepository : IMangaRepository
         {
             connection.Open();
             string sql = @"SELECT Id, Titulo, TomosPublicados, Demografia
-                FROM Peliculas
+                FROM Manga
                 WHERE Id = @id";
 
             using (var command = new SqliteCommand(sql, connection))
