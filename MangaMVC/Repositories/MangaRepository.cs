@@ -83,14 +83,49 @@ public class MangaRepository : IMangaRepository
 
     public void Add(Models.Manga manga)
     {
+        using var conexion = new SqliteConnection(CadenaConexion);
+        conexion.Open();
 
+        string sql = @"INSERT INTO Manga (Titulo, TomosPublicados, Demografia)
+            VALUES(@tit, @tom, @dem)";
+
+        using var comando = new SqliteCommand(sql, conexion);
+
+        comando.Parameters.AddWithValue("@tit", manga.Titulo);
+        comando.Parameters.AddWithValue("@tom", manga.TomosPublicados);
+        comando.Parameters.AddWithValue("@dem", manga.Demografia.ToString()); // para que se guarde con el nombre
+
+        comando.ExecuteNonQuery();
     }
-    public void Update(int id)
+    public void Update(Manga manga)
     {
+        using var conexion = new SqliteConnection(CadenaConexion);
+        conexion.Open();
 
+        string sql = @"UPDATE Manga
+            SET Titulo = @tit, TomosPublicados = @tom, Demografia = @dem
+            WHERE Id = @id";
+
+        using var comando = new SqliteCommand(sql, conexion);
+
+        comando.Parameters.AddWithValue("@id", manga.Id);
+        comando.Parameters.AddWithValue("@tit", manga.Titulo);
+        comando.Parameters.AddWithValue("@tom", manga.TomosPublicados);
+        comando.Parameters.AddWithValue("@dem", manga.Demografia.ToString());
+
+        comando.ExecuteNonQuery();
     }
     public void Delete(int id)
     {
+        using var conexion = new SqliteConnection(CadenaConexion);
+        conexion.Open();
 
+        string sql = @"DELETE FROM Manga
+            WHERE Id = @id";
+
+        using var comando = new SqliteCommand(sql, conexion);
+        comando.Parameters.AddWithValue("@id", id);
+
+        comando.ExecuteNonQuery();
     }
 }

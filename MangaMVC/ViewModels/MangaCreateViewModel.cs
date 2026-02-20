@@ -17,7 +17,7 @@ public class MangaCreateViewModel
 
     [Required(ErrorMessage = "Demografia obligatoria.")]
     public Demografia Demografia {get; set;}
-    public SelectList ListaCategorias { get; set; } // para el desplegable
+    public SelectList ListaDemografias { get; set; } // para el desplegable
 
     public MangaCreateViewModel()
     {}
