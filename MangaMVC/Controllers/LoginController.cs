@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Manga.Interfaces;
-using Manga.ViewModels;
+using TiendaManga.Interfaces;
+using TiendaManga.ViewModels;
 public class LoginController : Controller
 {
     private readonly IAuthenticationService _authenticationService;

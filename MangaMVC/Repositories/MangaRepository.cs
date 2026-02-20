@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Data.Sqlite;
-using TiendaManga.Models; 
+using TiendaManga.Models;
 using TiendaManga.Interfaces;
 
 namespace TiendaManga.Repositorios;
@@ -44,21 +44,53 @@ public class MangaRepository : IMangaRepository
         }
         return lista;
     }
-    
+
     public Models.Manga GetById(int id)
     {
-        
+        Models.Manga manga = null;
+
+        using (var connection = new SqliteConnection(CadenaConexion))
+        {
+            connection.Open();
+            string sql = @"SELECT Id, Titulo, TomosPublicados, Demografia
+                FROM Peliculas
+                WHERE Id = @id";
+
+            using (var command = new SqliteCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read()) // si lee algo
+                    {
+                        string demografiaString = reader.GetString(3);
+                        Demografia dem;
+                        Enum.TryParse<Demografia>(demografiaString, true, out dem);
+
+                        manga = new Models.Manga()
+                        {
+                            Id = reader.GetInt32(0),
+                            Titulo = reader.GetString(1),
+                            TomosPublicados = reader.GetInt32(2),
+                            Demografia = dem,
+                        };
+                    }
+                }
+            }
+        }
+        return manga;
     }
+
     public void Add(Models.Manga manga)
     {
-        
+
     }
     public void Update(int id)
     {
-        
+
     }
     public void Delete(int id)
     {
-        
+
     }
 }

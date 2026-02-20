@@ -1,5 +1,5 @@
-using Manga.Interfaces;
-namespace Manga.Services;
+using TiendaManga.Interfaces;
+namespace TiendaManga.Services;
 public class AuthenticationService : IAuthenticationService
 {
     private readonly IUserRepository _userRepository;

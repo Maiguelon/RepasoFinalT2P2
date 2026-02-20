@@ -1,7 +1,7 @@
 // AGREGAR
-using Manga.Interfaces;
-using Manga.Repositorios;
-using Manga.Services;
+using TiendaManga.Interfaces;
+using TiendaManga.Repositorios;
+using TiendaManga.Services;
 
 // { AGREGAR
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +16,7 @@ builder.Services.AddSession(options =>
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IUserRepository, UsuarioRepository>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-// builder.Services.AddScoped<IMangaRepository, MangaRepository>();
+builder.Services.AddScoped<IMangaRepository, MangaRepository>();
 // }
 
 

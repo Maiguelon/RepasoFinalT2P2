@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using MangaMVC.Models;
+using TiendaManga.Models;
 
-namespace MangaMVC.Controllers;
+namespace TiendaManga.Controllers;
 
 public class HomeController : Controller
 {

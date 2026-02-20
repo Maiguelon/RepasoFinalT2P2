@@ -2,7 +2,7 @@ using Microsoft.Data.Sqlite;
 using TiendaManga.Interfaces;
 using TiendaManga.Models; // Asume que la clase Usuario está en la carpeta Models
 
-namespace Manga.Repositorios;
+namespace TiendaManga.Repositorios;
 
     // ❗ Implementa la interfaz para permitir la Inyección de Dependencias
     public class UsuarioRepository : IUserRepository
