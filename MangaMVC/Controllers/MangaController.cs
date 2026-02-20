@@ -175,4 +175,33 @@ public class MangaController : Controller
         model.ListaDemografias = new SelectList(items, "Value", "Text");
         return View(model);
     }
+
+    // ----- DELETE (GET)
+    public IActionResult Delete(int id)
+    {
+        // 1. Seguridad
+        if (!_authService.IsAuthenticated()) return RedirectToAction("Index", "Login");
+        if (!_authService.HasAccessLevel("Administrador")) return RedirectToAction("AccesoDenegado", "Login");
+
+        // 2. Buscar
+        var manga = _mangaRepo.GetById(id);
+        if (manga == null) return NotFound();
+
+        // 3. Usamos el IndexViewModel para mostrar los datos seguros en la vista de confirmación
+        var model = new MangaIndexViewModel(manga);
+        
+        return View(model);
+    }
+
+    // ----- DELETE (POST)
+    [HttpPost, ActionName("Delete")]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        // 1. Seguridad en el POST
+        if (!_authService.HasAccessLevel("Administrador")) return RedirectToAction("AccesoDenegado", "Login");
+
+        // 2. Borrar y volver
+        _mangaRepo.Delete(id);
+        return RedirectToAction(nameof(Index));
+    }
 }
